@@ -1,8 +1,8 @@
-const WebSocket = require("ws");
+import WebSocket, { WebSocketServer } from "ws";
 
 const PORT = process.env.PORT || 10000;
 
-const wss = new WebSocket.Server({ port: PORT });
+const wss = new WebSocketServer({ port: PORT });
 
 const TARGET = "wss://141.11.45.234/video";
 
@@ -24,3 +24,5 @@ wss.on("connection", (client) => {
   client.on("close", () => remote.close());
   remote.on("close", () => client.close());
 });
+
+console.log(`Listening on ${PORT}`);
