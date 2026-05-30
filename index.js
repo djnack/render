@@ -12,7 +12,7 @@ wss.on("connection", (client, req) => {
   console.log("🟢 CLIENT CONNECTED");
   console.log("IP:", req.socket.remoteAddress);
 
-  const targetUrl = "wss://panel.zbio.ir/";
+  const targetUrl = "wss://panel.zbio.ir:8448/";
 
   console.log("➡️ Connecting to backend:", targetUrl);
 
@@ -50,7 +50,12 @@ wss.on("connection", (client, req) => {
       client.send(data);
     }
   });
-
+  
+  server.on("request", (req, res) => {
+    res.writeHead(200);
+    res.end("OK");
+  });
+  
   client.on("close", () => {
     console.log("🔴 CLIENT CLOSED");
     remote.close();
