@@ -5,14 +5,14 @@ const server = http.createServer();
 
 const wss = new WebSocketServer({
   server,
-  path: "/video",
+  path: "/",
 });
 
 wss.on("connection", (client, req) => {
   console.log("🟢 CLIENT CONNECTED");
   console.log("IP:", req.socket.remoteAddress);
 
-  const targetUrl = "wss://panel.zbio.ir/video";
+  const targetUrl = "wss://panel.zbio.ir/";
 
   console.log("➡️ Connecting to backend:", targetUrl);
 
