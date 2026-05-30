@@ -12,7 +12,7 @@ wss.on("connection", (client, req) => {
   console.log("🟢 CLIENT CONNECTED");
   console.log("IP:", req.socket.remoteAddress);
 
-  const targetUrl = "wss://panel.zbio.ir:8448/";
+  const targetUrl = "wss://panel.zbio.ir:443/";
 
   console.log("➡️ Connecting to backend:", targetUrl);
 
